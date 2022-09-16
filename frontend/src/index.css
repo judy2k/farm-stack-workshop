@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.todo-item {
+  margin-top: 1em;
+  padding: 1em;
+  border: 1px solid lightgrey;
+}
