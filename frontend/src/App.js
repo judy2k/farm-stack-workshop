@@ -16,7 +16,7 @@ function App() {
             const tasks = await response.json()
             setTasks(tasks);
         }
-
+        setTimeout(fetchAllTasks, 0)
         const interval = setInterval(fetchAllTasks, 1000)
 
         return () => {
