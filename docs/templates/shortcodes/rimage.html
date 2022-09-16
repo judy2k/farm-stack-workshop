@@ -1,0 +1,4 @@
+<p>
+    {% set image = resize_image(path=path, op="fit_width", width=800) %}
+    <img src="{{ image.url }}" />
+</p>

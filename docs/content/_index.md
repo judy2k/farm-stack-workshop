@@ -3,7 +3,7 @@ title = "FARM Stack Workshop!"
 
 [extra]
 lead = "Welcome to the FARM Stack workshop. This 90-minute workshop will introduce you to the concepts behind FastAPI, React & MongoDB, and help you get set up with your first application!"
-url="/docs/"
+url="/docs/getting-set-up/create-an-atlas-account/"
 
 [[extra.list]]
 title = "FastAPI"
