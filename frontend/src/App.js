@@ -26,6 +26,7 @@ function App() {
         const timelineItems = tasks.reverse().map((task) => {
             return task.completed ? (
                 <Timeline.Item
+                    key={task._id}
                     dot={<CheckCircleOutlined />}
                     color="green"
                     style={{ textDecoration: "line-through", color: "green" }}
@@ -37,6 +38,7 @@ function App() {
                     dot={<MinusCircleOutlined />}
                     color="blue"
                     style={{ textDecoration: "initial" }}
+                        key={task._id}
                 >
                     {task.name} <small>({task._id})</small>
                 </Timeline.Item>
