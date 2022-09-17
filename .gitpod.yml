@@ -14,7 +14,7 @@ tasks:
       mkdir -p /workspace/data
     command: |
       mongod --dbpath /workspace/data
-      
+  # Set up and run the FastAPI
   - name: FastAPI
     init: |
       cd backend
