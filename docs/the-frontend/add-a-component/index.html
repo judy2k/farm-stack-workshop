@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://judy2k.github.io/farm-stack-workshop/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://judy2k.github.io/farm-stack-workshop/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://judy2k.github.io/farm-stack-workshop/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>Add a React Component | FARM Stack Workshop</title>
+<meta name="description" content="Let&#x27;s put together a FARM Stack site!">
+<link rel="canonical" href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/add-a-component/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://judy2k.github.io/farm-stack-workshop/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Docs",
+            "item": "https://judy2k.github.io/farm-stack-workshop/docs/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "The Frontend",
+            "item": "https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Add A Component",
+            "item": "https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/add-a-component/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://judy2k.github.io/farm-stack-workshop/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://judy2k.github.io/farm-stack-workshop/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://judy2k.github.io/farm-stack-workshop/favicon-16x16.png">
+  
+    <link rel="manifest" href="https://judy2k.github.io/farm-stack-workshop/site.webmanifest" crossorigin>
+  
+
+
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://judy2k.github.io/farm-stack-workshop">FARM Stack Workshop</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://twitter.com/judy2k"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg><span class="ms-2 visually-hidden">Twitter</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+					
+				
+				
+				
+					
+						<li class="nav-item docs active">
+							<a class="nav-link" href="https://judy2k.github.io/farm-stack-workshop/docs/">Docs</a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+							<h3>Getting Set Up</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/getting-set-up/create-an-atlas-account/">Create an Atlas Account</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/getting-set-up/spin-up-a-cluster/">Spin Up a Cluster</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/getting-set-up/getting-the-code/">Getting The Code</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/getting-set-up/installation/">Install Your Dependencies</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>The Backend</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/the-backend/installing-dependencies/">Installing backend dependencies</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/the-backend/configure-and-run/">Configure and run the backend app</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/the-backend/exploring-the-fastapi-interface/">Exploring the FastAPI interface</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>The React Frontend</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/install-and-run/">Install and run the React app</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/playing-with-the-ui/">Playing with the app</a></li>
+							                           
+									<li><a class="docs-link active" href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/add-a-component/">Add a React Component</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/update-task-status/">Sending updates to the server</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/next-steps/">Next steps</a></li>
+							
+					</ul>
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/add-a-component/#create-the-newitem-component">Create the NewItem component</a></li>
+  							
+  							
+  							<li><a href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/add-a-component/#making-the-component-do-something">Making the component do something</a></li>
+  							
+  							
+  							<li><a href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/add-a-component/#how-will-fastapi-save-your-to-do-item">How will FastAPI save your to-do item?</a></li>
+  							
+  							
+  							<li><a href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/add-a-component/#saving-new-to-do-items">Saving new to-do items</a></li>
+  							
+  							
+  							<li><a href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/add-a-component/#what-s-next">What&#x27;s Next?</a></li>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>Add a React Component</h1>
+        
+        <p>React apps are made up of <a href="https://reactjs.org/docs/react-component.html">Components</a>.
+React components are very clever and can get a bit complex, but a simple React component is just a function that returns some HTML.</p>
+<h1 id="create-the-newitem-component">Create the NewItem component</h1>
+<p>Create a file called <code>NewItem.js</code> in the src folder of the <code>frontend</code> app.
+Paste (or type) the following code into it:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#65737e;">// frontend/src/NewItem.js
+</span><span>
+</span><span style="color:#b48ead;">import </span><span>{ </span><span style="color:#bf616a;">useState </span><span>} </span><span style="color:#b48ead;">from </span><span>&quot;</span><span style="color:#a3be8c;">react</span><span>&quot;
+</span><span>
+</span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">NewItem</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">return </span><span>(
+</span><span>        &lt;div&gt;
+</span><span>            &lt;h1&gt;</span><span style="color:#bf616a;">New Todo</span><span>&lt;/</span><span style="color:#bf616a;">h1</span><span>&gt;
+</span><span>            &lt;</span><span style="color:#bf616a;">input </span><span>/&gt;
+</span><span>            &lt;button&gt;</span><span style="color:#bf616a;">Save</span><span>&lt;/</span><span style="color:#bf616a;">button</span><span>&gt;
+</span><span>        &lt;/</span><span style="color:#bf616a;">div</span><span>&gt;
+</span><span>    )
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">export default </span><span style="color:#bf616a;">NewItem
+</span></code></pre>
+<p>Now modify <code>App.js</code> to import and use the new component.</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#65737e;">// frontend/src/App.js
+</span><span>
+</span><span style="color:#65737e;">// Add this to the import statements at the top:
+</span><span style="color:#b48ead;">import </span><span style="color:#bf616a;">NewItem </span><span style="color:#b48ead;">from </span><span>&quot;</span><span style="color:#a3be8c;">./NewItem</span><span>&quot;
+</span><span>
+</span><span style="color:#65737e;">// Modify the `Col` so that it looks like this:
+</span><span>&lt;</span><span style="color:#bf616a;">Col span</span><span>={</span><span style="color:#d08770;">14</span><span>} </span><span style="color:#bf616a;">offset</span><span>={</span><span style="color:#d08770;">5</span><span>}&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">NewItem </span><span>/&gt;
+</span><span>    &lt;div&gt;{tasks.reverse().map((task) =&gt; (&lt;Item </span><span style="color:#bf616a;">key</span><span>={task.</span><span style="color:#bf616a;">_id</span><span>} </span><span style="color:#bf616a;">task</span><span>={</span><span style="color:#bf616a;">task</span><span>} /&gt;))}&lt;/</span><span style="color:#bf616a;">div</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">Col</span><span>&gt;
+</span></code></pre>
+<p>If you're still running both your backend and frontend apps,
+you shouldn't even need to refresh the browser.
+It should now look a little like this:</p>
+<p>
+    
+    <img src="https:&#x2F;&#x2F;judy2k.github.io&#x2F;farm-stack-workshop&#x2F;processed_images&#x2F;cddf6219c226dc1200.png" />
+</p>
+<p>The only problem with this component so far,
+is that it doesn't actually <em>do</em> anything!</p>
+<h1 id="making-the-component-do-something">Making the component do something</h1>
+<p>There are two steps to making these HTML components do more than just look good.</p>
+<p>The first is to monitor the text field, to keep track of its contents.
+We need to do this because it's not the React way to lookup an HTML component and extract its value.
+Instead, you need to add an event handler to copy the text field's contents into the React component's state.</p>
+<p>Inside the <code>NewItem</code> function, add the following lines:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span>    </span><span style="color:#b48ead;">const </span><span>[</span><span style="color:#bf616a;">text</span><span>, </span><span style="color:#bf616a;">setText</span><span>] = </span><span style="color:#8fa1b3;">useState</span><span>(&quot;&quot;);
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">updateText</span><span>(</span><span style="color:#bf616a;">e</span><span>) {
+</span><span>        </span><span style="color:#8fa1b3;">setText</span><span>(</span><span style="color:#bf616a;">e</span><span>.target.value);
+</span><span>        </span><span style="color:#ebcb8b;">console</span><span>.</span><span style="color:#96b5b4;">log</span><span>(&quot;</span><span style="color:#a3be8c;">Text field value:</span><span>&quot;, </span><span style="color:#bf616a;">text</span><span>);
+</span><span>    }
+</span></code></pre>
+<p>The <code>useState</code> function is what's called a <a href="https://reactjs.org/docs/hooks-state.html">React Hook</a>.
+Explaining how it works is a little out of scope,
+but for now assume that it's creating a new internal property for this component,
+called <code>text</code> that will contain the current value of the text field.
+At the same time, it creates a <em>function</em> called <code>setText</code> that can be used to update the value of the text field.
+(And you shouldn't update that value any other way, or React won't be able to pick up the change.)</p>
+<p>The <code>updateText</code> function will listen for changes to the text field's contents and update the <code>text</code> field you've just declared. I've also added a call to <code>console.log</code> so we can see that everything's working at this stage.
+Currently the <code>updateText</code> function hasn't been hooked up to any events,
+so change the <code>&lt;input&gt;</code> field's definition to look like this:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span>&lt;</span><span style="color:#bf616a;">input onChange</span><span>={</span><span style="color:#bf616a;">updateText</span><span>} /&gt;
+</span></code></pre>
+<p>If you flip back to the browser and type into the text field,
+you should see multiple updates appearing in your browser's developer console.</p>
+<h1 id="how-will-fastapi-save-your-to-do-item">How will FastAPI save your to-do item?</h1>
+<p>Now you have the component's state being managed successfully,
+it's time to start sending updates to your FastAPI server.</p>
+<p>I've already provided the new task function for you.
+It's in <code>backend/apps/todo/routers.py</code>,
+and it looks like this:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>@router.</span><span style="color:#bf616a;">post</span><span>(&quot;</span><span style="color:#a3be8c;">/</span><span>&quot;, </span><span style="color:#bf616a;">response_description</span><span>=&quot;</span><span style="color:#a3be8c;">Add new task</span><span>&quot;)
+</span><span style="color:#b48ead;">async def </span><span style="color:#8fa1b3;">create_task</span><span>(</span><span style="color:#bf616a;">request</span><span>: Request, </span><span style="color:#bf616a;">task</span><span>: TaskModel = </span><span style="color:#bf616a;">Body</span><span>(</span><span style="color:#d08770;">...</span><span>)):
+</span><span>    task = </span><span style="color:#bf616a;">jsonable_encoder</span><span>(task)
+</span><span>    new_task = </span><span style="color:#b48ead;">await </span><span>request.app.mongodb.</span><span style="color:#bf616a;">get_collection</span><span>(&quot;</span><span style="color:#a3be8c;">tasks</span><span>&quot;).</span><span style="color:#bf616a;">insert_one</span><span>(task)
+</span><span>    created_task = </span><span style="color:#b48ead;">await </span><span>request.app.mongodb.</span><span style="color:#bf616a;">get_collection</span><span>(&quot;</span><span style="color:#a3be8c;">tasks</span><span>&quot;).</span><span style="color:#bf616a;">find_one</span><span>(
+</span><span>        {&quot;</span><span style="color:#a3be8c;">_id</span><span>&quot;: new_task.inserted_id}
+</span><span>    )
+</span></code></pre>
+<p>This function encodes the provided task object as JSON, inserts it into the collection,
+and then retrieves it again to return to the browser.
+(Because Rest APIs return documents when an insert or update is made.)</p>
+<p>To call this endpoint,
+you'll need to make a <code>POST</code> request to it from the React component.</p>
+<h1 id="saving-new-to-do-items">Saving new to-do items</h1>
+<p>Switch back to <code>NewItem.js</code>.
+Add the following function into your component:</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">save</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">const </span><span style="color:#bf616a;">newTodo </span><span>= {
+</span><span>        name: </span><span style="color:#bf616a;">text</span><span>,
+</span><span>        completed: </span><span style="color:#d08770;">false</span><span>,
+</span><span>    }
+</span><span>
+</span><span>    </span><span style="color:#8fa1b3;">fetch</span><span>(&quot;</span><span style="color:#a3be8c;">/task/</span><span>&quot;, {
+</span><span>        method: &quot;</span><span style="color:#a3be8c;">POST</span><span>&quot;,
+</span><span>        headers: {
+</span><span>            &#39;</span><span style="color:#a3be8c;">Content-Type</span><span>&#39;: &#39;</span><span style="color:#a3be8c;">application/json</span><span>&#39;
+</span><span>        },
+</span><span>        body: JSON.</span><span style="color:#96b5b4;">stringify</span><span>(</span><span style="color:#bf616a;">newTodo</span><span>),
+</span><span>    })
+</span><span>}
+</span></code></pre>
+<p>This builds an object containing the new task data,
+then it posts it to the endpoint above.</p>
+<p>Once again, this handler needs to be hooked into the HTML component,
+so modify the <code>&lt;button&gt;</code> to add an <code>onClick</code> handler.</p>
+<pre data-lang="js" style="background-color:#2b303b;color:#c0c5ce;" class="language-js "><code class="language-js" data-lang="js"><span>&lt;</span><span style="color:#bf616a;">button onClick</span><span>={</span><span style="color:#bf616a;">save</span><span>}&gt;</span><span style="color:#bf616a;">Save</span><span>&lt;/</span><span style="color:#bf616a;">button</span><span>&gt;
+</span></code></pre>
+<p>Return to the browser, 
+type something in the text box,
+hit &quot;Save&quot;,
+and within a second
+(because of the polling delay)
+you should see a new item appear at the bottom of the list of to-do items!</p>
+<h1 id="what-s-next">What's Next?</h1>
+<p>Now it's time to check off our last to-do item!
+(Sorry!)</p>
+<p>When you click any of those checkboxes,
+the new state needs to be saved in your database.
+Let's do that.</p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;judy2k.github.io&#x2F;farm-stack-workshop&#x2F;docs&#x2F;the-backend&#x2F;exploring-the-fastapi-interface&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; Exploring the FastAPI interface
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
+        
+        
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Brought to you by <a href="https://www.mongodb.com/">MongoDB</a></li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script type="text/javascript" src="https://judy2k.github.io/farm-stack-workshop/js/main.js" defer></script>
+
+  <script type="text/javascript" src="https://judy2k.github.io/farm-stack-workshop/plugins/elasticlunr.min.js" defer></script>
+  <script type="text/javascript" src="https://judy2k.github.io/farm-stack-workshop/search_index.en.js" defer></script>
+  <script type="text/javascript" src="https://judy2k.github.io/farm-stack-workshop/js/search.js" defer></script>
+
+  
+</body>
+</html>

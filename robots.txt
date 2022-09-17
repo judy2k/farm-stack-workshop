@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://judy2k.github.io/farm-stack-workshop/sitemap.xml

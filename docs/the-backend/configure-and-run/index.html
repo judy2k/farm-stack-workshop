@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://judy2k.github.io/farm-stack-workshop/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://judy2k.github.io/farm-stack-workshop/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://judy2k.github.io/farm-stack-workshop/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>Configure and run the backend app | FARM Stack Workshop</title>
+<meta name="description" content="Let&#x27;s put together a FARM Stack site!">
+<link rel="canonical" href="https://judy2k.github.io/farm-stack-workshop/docs/the-backend/configure-and-run/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://judy2k.github.io/farm-stack-workshop/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Docs",
+            "item": "https://judy2k.github.io/farm-stack-workshop/docs/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "The Backend",
+            "item": "https://judy2k.github.io/farm-stack-workshop/docs/the-backend/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Configure And Run",
+            "item": "https://judy2k.github.io/farm-stack-workshop/docs/the-backend/configure-and-run/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://judy2k.github.io/farm-stack-workshop/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://judy2k.github.io/farm-stack-workshop/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://judy2k.github.io/farm-stack-workshop/favicon-16x16.png">
+  
+    <link rel="manifest" href="https://judy2k.github.io/farm-stack-workshop/site.webmanifest" crossorigin>
+  
+
+
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://judy2k.github.io/farm-stack-workshop">FARM Stack Workshop</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://twitter.com/judy2k"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg><span class="ms-2 visually-hidden">Twitter</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+					
+				
+				
+				
+					
+						<li class="nav-item docs active">
+							<a class="nav-link" href="https://judy2k.github.io/farm-stack-workshop/docs/">Docs</a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+							<h3>Getting Set Up</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/getting-set-up/create-an-atlas-account/">Create an Atlas Account</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/getting-set-up/spin-up-a-cluster/">Spin Up a Cluster</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/getting-set-up/getting-the-code/">Getting The Code</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/getting-set-up/installation/">Install Your Dependencies</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>The Backend</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/the-backend/installing-dependencies/">Installing backend dependencies</a></li>
+							                           
+									<li><a class="docs-link active" href="https://judy2k.github.io/farm-stack-workshop/docs/the-backend/configure-and-run/">Configure and run the backend app</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/the-backend/exploring-the-fastapi-interface/">Exploring the FastAPI interface</a></li>
+							
+					</ul>
+					
+					
+					
+					
+							<h3>The React Frontend</h3>
+							<ul class="list-unstyled">
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/install-and-run/">Install and run the React app</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/playing-with-the-ui/">Playing with the app</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/add-a-component/">Add a React Component</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/update-task-status/">Sending updates to the server</a></li>
+							                           
+									<li><a class="docs-link" href="https://judy2k.github.io/farm-stack-workshop/docs/the-frontend/next-steps/">Next steps</a></li>
+							
+					</ul>
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://judy2k.github.io/farm-stack-workshop/docs/the-backend/configure-and-run/#configure-the-app">Configure The App</a></li>
+  							
+  							
+  							<li><a href="https://judy2k.github.io/farm-stack-workshop/docs/the-backend/configure-and-run/#your-connection-string">Your connection string</a></li>
+  							
+  							
+  							<li><a href="https://judy2k.github.io/farm-stack-workshop/docs/the-backend/configure-and-run/#create-a-new-user">Create a new user</a></li>
+  							
+  							
+  							<li><a href="https://judy2k.github.io/farm-stack-workshop/docs/the-backend/configure-and-run/#network-access">Network Access</a></li>
+  							
+  							
+  							<li><a href="https://judy2k.github.io/farm-stack-workshop/docs/the-backend/configure-and-run/#run-the-backend-service">Run The Backend Service</a></li>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>Configure and run the backend app</h1>
+        <p class="lead">Configure and run the back-end FastAPI app.</p>
+        <h2 id="configure-the-app">Configure The App</h2>
+<p>In order to run, the app need some environment variables to be set.</p>
+<table><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody>
+<tr><td>DEBUG_MODE</td><td>Automatically reload your changes when you edit files.</td></tr>
+<tr><td>DB_URL</td><td>The connection string for your MongoDB database!</td></tr>
+<tr><td>DB_NAME</td><td>The name of your database on the cluster.</td></tr>
+</tbody></table>
+<p>There are a bunch of ways to configure these variables. 
+I put mine in a short script, <code>env.sh</code> and then I can run it in my shell with <code>source env.sh</code>.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">DEBUG_MODE</span><span>=</span><span style="color:#a3be8c;">True
+</span><span style="color:#b48ead;">export </span><span style="color:#bf616a;">DB_URL</span><span>=&quot;</span><span style="color:#a3be8c;">mongodb+srv://farm_stack_workshop:SUPERSECRETPASSWORD@sandbox.sqp1k.mongodb.net/?retryWrites=true&amp;w=majority</span><span>&quot;
+</span><span style="color:#b48ead;">export </span><span style="color:#bf616a;">DB_NAME</span><span>=&quot;</span><span style="color:#a3be8c;">farmstack</span><span>&quot;
+</span></code></pre>
+<p>If you're going to use the same approach,
+create a file like this,
+and then delete the value of the <code>DB_URL</code> variable.</p>
+<p>It's time to go get your MongoDB connection string!</p>
+<h2 id="your-connection-string">Your connection string</h2>
+<p>Go back to MongoDB Atlas in your browser.
+Your cluster should have finished starting up,
+and it's now time to get your connection details.</p>
+<ol>
+<li>Select &quot;Connect your application&quot;</li>
+<li>Click on &quot;Connect&quot;, and then select &quot;Python&quot; in the &quot;Driver&quot; drop-down.</li>
+<li>The driver version should be the highest number in the drop-down.</li>
+<li>You should see a URI (which is a MongoDB connection string) in the second step on the page.
+Click on the copy button and paste it into your configuration script.</li>
+</ol>
+<p>The connection string you've been given hasn't got a valid user account embedded in it.
+Instead, it contains <code>&lt;username&gt;:&lt;password&gt;</code>. 
+You need to fix that by creating a user account.</p>
+<h2 id="create-a-new-user">Create a new user</h2>
+<p>Close the &quot;Connect&quot; panel,
+and click &quot;Database Access&quot; in the navigation column on the left-hand side of the page.</p>
+<ol>
+<li>Click the &quot;Add New Database User&quot; button.</li>
+<li>Authentication method should be &quot;Password&quot;</li>
+<li>Type in a username for the user. I used &quot;farm_demo&quot;</li>
+<li>Click &quot;Autogenerate Secure Password&quot; - it's the quickest way to get a secure password for the account.</li>
+<li>Copy and paste the username to replace <code>&lt;username&gt;</code> in your script.</li>
+<li>Click the &quot;Copy&quot; button and paste the password to replace <code>&lt;password&gt;</code> in your script.</li>
+</ol>
+<p>That's great! You have a connection string for your user, but it doesn't actually have enough privileges to connect to your database.</p>
+<p>Under &quot;Database User Privileges&quot;, click on &quot;Add Built-in Role&quot; and select &quot;Read and Write To Any Database&quot;.
+You would usually lock down the user in production for security reasons,
+but for this situation, this will be fine.</p>
+<p>Click the &quot;Add User&quot; button.</p>
+<p><strong>Nearly there!</strong> But not <em>quite</em>. By default, your cluster is locked down so it can't be accessed over the network at all. Let's go fix that.</p>
+<h2 id="network-access">Network Access</h2>
+<ol>
+<li>Click &quot;Network Access&quot; on the left-hand side (just under &quot;Database Access&quot;).</li>
+<li>Click &quot;Add IP Address&quot; on the right-hand side of the screen.</li>
+<li>If you know you have a static IP address, you can select &quot;Add My IP Address&quot;,
+but if you don't know, select &quot;Allow Access From Anywhere&quot;.
+Again, you wouldn't do this in production,
+but it'll be fine for this development project.</li>
+</ol>
+<p><strong>Okay!</strong> Now run <code>source env.sh</code> (or whatever you called your config script), and run <code>echo $DB_NAME</code> it should print out &quot;farmstack&quot;</p>
+<h2 id="run-the-backend-service">Run The Backend Service</h2>
+<p>Now run <code>python main.py</code> in the &quot;backend&quot; directory to start the service.</p>
+<p>If everything's going well, you should see something like this:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ python main.py
+</span><span>INFO:     Will watch for changes in these directories: [&#39;/Users/judy2k/Sync/Talks/FARM-Intro/backend&#39;]
+</span><span>INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+</span><span>INFO:     Started reloader process [68282] using WatchFiles
+</span><span>INFO:     Started server process [68284]
+</span><span>INFO:     Waiting for application startup.
+</span><span>INFO:     Application startup complete.
+</span></code></pre>
+<p>Now let's go and explore the backend app,
+and see if you can create some data!</p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;judy2k.github.io&#x2F;farm-stack-workshop&#x2F;docs&#x2F;getting-set-up&#x2F;installation&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; Install Your Dependencies
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+          
+          
+          <a class="ms-auto" href="https:&#x2F;&#x2F;judy2k.github.io&#x2F;farm-stack-workshop&#x2F;docs&#x2F;the-frontend&#x2F;install-and-run&#x2F;">
+            <div class="card my-1">
+              <div class="card-body py-2">
+                Install and run the React app &rarr;
+              </div>
+            </div>
+          </a>
+          
+          
+          
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Brought to you by <a href="https://www.mongodb.com/">MongoDB</a></li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script type="text/javascript" src="https://judy2k.github.io/farm-stack-workshop/js/main.js" defer></script>
+
+  <script type="text/javascript" src="https://judy2k.github.io/farm-stack-workshop/plugins/elasticlunr.min.js" defer></script>
+  <script type="text/javascript" src="https://judy2k.github.io/farm-stack-workshop/search_index.en.js" defer></script>
+  <script type="text/javascript" src="https://judy2k.github.io/farm-stack-workshop/js/search.js" defer></script>
+
+  
+</body>
+</html>
