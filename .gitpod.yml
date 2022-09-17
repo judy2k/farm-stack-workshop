@@ -1,0 +1,33 @@
+image:
+  file: .gitpod.Dockerfile
+  
+ports:
+# Open ports for the API and the React App
+  - port: 3000
+  - port: 8000
+
+tasks:
+  # Set up the the mongo database
+  - name: Initialize Python, pip and npm
+    init: |
+      mkdir -p /workspace/data
+      mongod --dbpath /workspace/data
+    command: |
+      gp sync-done mongodb-is-ready # an arbitrary tag. 
+  - name: FastAPI
+    init: |
+      gp sync-await mongodb-is-ready
+      cd backend
+      virtualenv .venv
+      . .venv/bin/activate
+      pip install --upgrade pip setuptools
+      pip install -Ur requirements.txt
+    command: |
+      gp sync-done api-is-ready # an arbitrary tag. 
+
+vscode:
+  extensions:
+    - ms-python.python
+    - streetsidesoftware.code-spell-checker
+    - ms-azuretools.vscode-docker
+    - rangav.vscode-thunder-client
