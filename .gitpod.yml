@@ -4,8 +4,14 @@ image:
   
 ports:
 # Open ports for the API and the React App
-  - port: 3000
-  - port: 8000
+  - name: React
+    description: The React to do list
+    port: 3000
+    onOpen: open-browser
+  - name: React
+    description: The FastAPI
+    port: 8000
+    onOpen: open-browser
 
 tasks:
   # Set up and run the Mongo database
