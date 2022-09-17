@@ -27,8 +27,7 @@ tasks:
     command: |
       cd backend
       . .venv/bin/activate
-      python main.py
-      gp sync-done api-is-ready 
+      python main.py; gp sync-done api-is-ready 
   # Set up and run the React front end
   - name: React
     init: |
