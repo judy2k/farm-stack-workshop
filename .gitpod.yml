@@ -5,8 +5,10 @@ image:
 ports:
 # Open ports for the API and the React App
   - port: 3000
+    onOpen: open-preview
   - port: 8000
-
+    onOpen: open-preview
+    
 tasks:
   # Set up and run the Mongo database
   - name: MongoDB
@@ -23,7 +25,18 @@ tasks:
       pip install --upgrade pip setuptools
       pip install -Ur requirements.txt
     command: |
+      cd backend
+      . .venv/bin/activate
+      python main.py
       gp sync-done api-is-ready # an arbitrary tag. 
+  # Set up and run the React front end
+  - name: React
+    init: |
+      cd frontend
+      npm install
+    command: |
+      cd frontend
+      npm start
 
 vscode:
   extensions:

@@ -12,8 +12,8 @@ class ServerSettings(BaseSettings):
 
 
 class DatabaseSettings(BaseSettings):
-    DB_URL: str
-    DB_NAME: str
+    DB_URL: str = "mongodb://localhost/?retryWrites=true&w=majority"
+    DB_NAME: str = "farm-stack"
 
 
 class Settings(CommonSettings, ServerSettings, DatabaseSettings):
