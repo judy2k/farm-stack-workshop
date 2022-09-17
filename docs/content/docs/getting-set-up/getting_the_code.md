@@ -14,3 +14,5 @@ If you're familiar with git, you can run `git clone git@github.com:judy2k/farm-s
 
 Otherwise, you can [download a ZIP](https://github.com/judy2k/farm-stack-workshop/archive/refs/heads/starting-point.zip) of the source code.
 
+Whichever way you get the code, make sure you obtain the "starting-point" branch, _not_ "main"!
+The "main" branch contains _spoilers_.

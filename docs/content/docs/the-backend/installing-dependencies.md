@@ -11,3 +11,12 @@ cd backend
 python -m venv venv
 source venv/bin/activate.sh
 ```
+
+# Install Your Dependencies
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+This should install all the dependencies for running the backend.
+Now go configure it!
