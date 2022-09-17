@@ -1,0 +1,60 @@
+---
+image:
+  file: .gitpod.Dockerfile
+  
+ports:
+# Open ports for the API and the React App
+  - name: React
+    description: The React to do list
+    port: 3000
+    onOpen: notify
+  - name: FastAPI
+    description: The FastAPI backend
+    port: 8000
+    onOpen: notify
+
+tasks:
+  # Set up and run the Mongo database
+  - name: MongoDB
+    init: |
+      mkdir -p /workspace/data
+    command: |
+      mongod --dbpath /workspace/data
+  # Set up and run the FastAPI
+  - name: FastAPI
+    init: |
+      cd backend
+      virtualenv .venv
+      . .venv/bin/activate
+      pip install --upgrade pip setuptools
+      pip install -Ur requirements.txt
+    command: |
+      cd backend
+      . .venv/bin/activate
+      python main.py
+  # Set up and run the React front end
+  - name: React
+    init: |
+      cd frontend
+      npm install
+    command: |
+      cd frontend
+      npm start
+
+github:
+  prebuilds:
+    # enable for the master/default branch (defaults to true)
+    master: true
+    # enable for all branches in this repo (defaults to false)
+    branches: true
+    # enable for pull requests coming from this repo (defaults to true)
+    pullRequests: true
+    # enable for pull requests coming from forks (defaults to false)
+    pullRequestsFromForks: true
+    # add a "Review in Gitpod" button as a comment to pull requests (defaults to true)
+    addComment: true
+    # add a "Review in Gitpod" button to pull requests (defaults to false)
+    addBadge: false
+    # add a label once the prebuild is ready to pull requests (defaults to false)
+    addLabel: prebuilt-in-gitpod
+...
