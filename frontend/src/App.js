@@ -4,7 +4,6 @@ import { Col, Row } from "antd"
 import { useEffect, useState } from "react"
 
 import Item from "./Item"
-import NewItem from "./NewItem"
 
 
 function App() {
@@ -28,7 +27,6 @@ function App() {
         <>
             <Row style={{ marginTop: 50 }}>
                 <Col span={14} offset={5}>
-                    <NewItem />
                     <div>{tasks.reverse().map((task) => (<Item key={task._id} task={task} />))}</div>
                 </Col>
             </Row>
