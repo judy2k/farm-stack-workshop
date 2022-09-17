@@ -5,9 +5,9 @@ image:
 ports:
 # Open ports for the API and the React App
   - port: 3000
-    onOpen: open-preview
+    onOpen: open-browser
   - port: 8000
-    onOpen: open-preview
+    onOpen: open-browser
     
 tasks:
   # Set up and run the Mongo database
@@ -28,13 +28,14 @@ tasks:
       cd backend
       . .venv/bin/activate
       python main.py
-      gp sync-done api-is-ready # an arbitrary tag. 
+      gp sync-done api-is-ready 
   # Set up and run the React front end
   - name: React
     init: |
       cd frontend
       npm install
     command: |
+      gp sync-await api-is-ready
       cd frontend
       npm start
 
