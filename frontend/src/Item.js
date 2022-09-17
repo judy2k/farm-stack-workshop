@@ -2,7 +2,7 @@ function Item(props) {
     const task = props.task;
 
     async function checkboxChange(event) {
-        task.completed = event.target.value
+        task.completed = event.target.checked
 
         await fetch(`/task/${task._id}`, {
             method: 'PUT',

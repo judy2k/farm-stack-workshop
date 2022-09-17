@@ -17,7 +17,7 @@ function App() {
             setTasks(tasks);
         }
         setTimeout(fetchAllTasks, 0)
-        const interval = setInterval(fetchAllTasks, 1000)
+        const interval = setTimeout(fetchAllTasks, 1000)
 
         return () => {
             clearInterval(interval)
