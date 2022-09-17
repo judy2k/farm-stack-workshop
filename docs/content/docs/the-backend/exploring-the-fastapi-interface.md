@@ -8,7 +8,7 @@ lead = "Load up the FastAPI interface in the browser, and have a play around."
 toc = true
 +++
 
-In your browser, open up [http://localhost:8000/](http://localhost:8000).
+In your browser, open up [http://localhost:8000/docs](http://localhost:8000/docs).
 It should look something like this:
 
 {{ rimage(path="docs/the-backend/fastapi_tasks.png") }}
