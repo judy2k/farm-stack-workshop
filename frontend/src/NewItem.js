@@ -1,4 +1,3 @@
-import { Button } from "antd"
 import { useState } from "react"
 
 function NewItem() {
@@ -27,7 +26,7 @@ function NewItem() {
         <div>
             <h1>New Todo</h1>
             <input onChange={updateText} />
-            <Button onClick={save}>Save</Button>
+            <button onClick={save}>Save</button>
         </div>
     )
 }
