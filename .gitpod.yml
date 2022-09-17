@@ -7,11 +7,11 @@ ports:
   - name: React
     description: The React to do list
     port: 3000
-    onOpen: open-browser
-  - name: React
-    description: The FastAPI
+    onOpen: ignore
+  - name: FastAPI
+    description: The FastAPI backend
     port: 8000
-    onOpen: open-browser
+    onOpen: ignore
 
 tasks:
   # Set up and run the Mongo database
