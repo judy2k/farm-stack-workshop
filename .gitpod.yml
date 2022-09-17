@@ -41,13 +41,6 @@ tasks:
       cd frontend
       npm start
 
-vscode:
-  extensions:
-    - ms-python.python
-    - streetsidesoftware.code-spell-checker
-    - ms-azuretools.vscode-docker
-    - rangav.vscode-thunder-client
-
 github:
   prebuilds:
     # enable for the master/default branch (defaults to true)
