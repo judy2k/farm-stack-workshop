@@ -8,7 +8,7 @@ ports:
 
 tasks:
   # Set up the the mongo database
-  - name: Initialize Python, pip and npm
+  - name: MongoDB
     init: |
       mkdir -p /workspace/data
       mongod --dbpath /workspace/data
