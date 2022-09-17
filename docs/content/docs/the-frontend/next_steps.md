@@ -55,6 +55,13 @@ way of receiving updates from the server.
   so this will involve an extra state field and an if statement in your component function based
   on that field's state.
 
+* Add [authentication]() to your application! This uses some features that are only available when you're hosting on MongoDB Atlas, but it's a really fast way to get authentication working for your application.
+
+  Once you have a concept of a user working, you can remodel your collection so each task list is per-user.
+  You might even decide to have each to-do *list* modelled in a single document for each user,
+  instad of storing each item separately. 
+
+
 * Break out of FastAPI, to try connecting Change Streams to Server-Side Events. 
   It'll involve a little more state management on the client side, because you'll be receiving _updates_
   instead of the whole collection state, but it should become really responsive.
