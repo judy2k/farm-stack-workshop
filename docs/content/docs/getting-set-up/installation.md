@@ -2,6 +2,11 @@
 title = "Install Your Dependencies"
 template = "docs/page.html"
 weight = 30
+sort_by = "weight"
+
+[extra]
+# lead = "Install Python & NodeJS."
+toc = true
 +++
 
 ## Install Python

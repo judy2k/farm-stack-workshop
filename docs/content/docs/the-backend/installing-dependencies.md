@@ -2,6 +2,10 @@
 title = "Installing backend dependencies"
 template = "docs/page.html"
 weight = 80
+
+[extra]
+# lead = "Install the Python project dependencies."
+toc = true
 +++
 
 # Create a Virtualenv (venv) in the directory

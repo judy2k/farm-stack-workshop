@@ -2,6 +2,10 @@
 title = "Configure and run the backend app"
 template = "docs/page.html"
 weight = 90
+
+[extra]
+lead = "Configure and run the back-end FastAPI app."
+toc = true
 +++
 
 ## Configure The App
@@ -45,7 +49,7 @@ The connection string you've been given hasn't got a valid user account embedded
 Instead, it contains `<username>:<password>`. 
 You need to fix that by creating a user account.
 
-# Create a new user
+## Create a new user
 
 Close the "Connect" panel,
 and click "Database Access" in the navigation column on the left-hand side of the page.

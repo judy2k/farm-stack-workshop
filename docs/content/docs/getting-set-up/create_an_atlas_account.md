@@ -2,6 +2,7 @@
 title = "Create an Atlas Account"
 template = "docs/page.html"
 weight = 5
+sort_by = "weight"
 +++
 
 You'll need a MongoDB account to spin up a free cluster.

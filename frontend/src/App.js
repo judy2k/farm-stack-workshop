@@ -1,4 +1,4 @@
-import "antd/dist/antd.css"
+import 'antd/dist/antd.min.css'
 
 import { Col, Row } from "antd"
 import { useEffect, useState } from "react"

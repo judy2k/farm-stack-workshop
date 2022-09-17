@@ -1,6 +1,6 @@
 +++
-title = "Getting Set Up"
+title = "The React Frontend"
 template = "docs/section.html"
 sort_by = "weight"
-weight = 1
+weight = 30
 +++

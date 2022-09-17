@@ -2,6 +2,7 @@
 title = "Spin Up a Cluster"
 template = "docs/page.html"
 weight = 10
+sort_by = "weight"
 +++
 
 Once you have a MongoDB Atlas account,

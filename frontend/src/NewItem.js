@@ -1,5 +1,5 @@
 import { Button } from "antd"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 function NewItem() {
     const [text, setText] = useState("");

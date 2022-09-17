@@ -1,5 +1,3 @@
-import "antd/dist/antd.css"
-
 function Item(props) {
     const task = props.task;
 

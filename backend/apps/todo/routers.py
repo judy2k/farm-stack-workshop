@@ -4,6 +4,7 @@ from fastapi.encoders import jsonable_encoder
 
 from .models import TaskModel, UpdateTaskModel
 
+
 router = APIRouter()
 
 
@@ -20,15 +21,14 @@ async def create_task(request: Request, task: TaskModel = Body(...)):
 
 @router.get("/", response_description="List all tasks")
 async def list_tasks(request: Request):
-    tasks = []
-    for doc in await request.app.mongodb.get_collection("tasks").find().to_list(length=100):
-        tasks.append(doc)
-    return tasks
+    return await request.app.mongodb.get_collection("tasks").find().to_list(length=100)
 
 
 @router.get("/{id}", response_description="Get a single task")
 async def show_task(id: str, request: Request):
-    if (task := await request.app.mongodb.get_collection("tasks").find_one({"_id": id})) is not None:
+    if (
+        task := await request.app.mongodb.get_collection("tasks").find_one({"_id": id})
+    ) is not None:
         return task
 
     raise HTTPException(status_code=404, detail=f"Task {id} not found")
@@ -38,9 +38,6 @@ async def show_task(id: str, request: Request):
 async def update_task(id: str, request: Request, task: UpdateTaskModel = Body(...)):
     task = {k: v for k, v in task.dict().items() if v is not None}
 
-    import sys
-    print(f"Updating: {task}", file=sys.stderr)
-
     if len(task) >= 1:
         update_result = await request.app.mongodb.get_collection("tasks").update_one(
             {"_id": id}, {"$set": task}
@@ -48,12 +45,16 @@ async def update_task(id: str, request: Request, task: UpdateTaskModel = Body(..
 
         if update_result.modified_count == 1:
             if (
-                updated_task := await request.app.mongodb.get_collection("tasks").find_one({"_id": id})
+                updated_task := await request.app.mongodb.get_collection(
+                    "tasks"
+                ).find_one({"_id": id})
             ) is not None:
                 return updated_task
 
     if (
-        existing_task := await request.app.mongodb.get_collection("tasks").find_one({"_id": id})
+        existing_task := await request.app.mongodb.get_collection("tasks").find_one(
+            {"_id": id}
+        )
     ) is not None:
         return existing_task
 
@@ -62,7 +63,9 @@ async def update_task(id: str, request: Request, task: UpdateTaskModel = Body(..
 
 @router.delete("/{id}", response_description="Delete Task")
 async def delete_task(id: str, request: Request):
-    delete_result = await request.app.mongodb.get_collection("tasks").delete_one({"_id": id})
+    delete_result = await request.app.mongodb.get_collection("tasks").delete_one(
+        {"_id": id}
+    )
 
     if delete_result.deleted_count == 1:
         return JSONResponse(status_code=status.HTTP_204_NO_CONTENT)

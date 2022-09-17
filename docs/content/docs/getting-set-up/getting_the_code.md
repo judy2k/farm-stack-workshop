@@ -2,6 +2,7 @@
 title = "Getting The Code"
 template = "docs/page.html"
 weight = 20
+sort_by = "weight"
 +++
 
 There's a small FARM stack project already set up for you.

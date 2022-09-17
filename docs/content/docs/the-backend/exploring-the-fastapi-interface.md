@@ -2,6 +2,10 @@
 title = "Exploring the FastAPI interface"
 template = "docs/page.html"
 weight = 100
+
+[extra]
+lead = "Load up the FastAPI interface in the browser, and have a play around."
+toc = true
 +++
 
 In your browser, open up [http://localhost:8000/](http://localhost:8000).
