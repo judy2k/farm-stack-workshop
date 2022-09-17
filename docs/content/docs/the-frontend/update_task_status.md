@@ -116,3 +116,12 @@ flip back to your browser,
 and click on one of the checkboxes.
 Then go to your Atlas tab, hit the "Apply" button,
 and check that the new state has been stored.
+
+# The End!
+
+That's the end of the guided section of this workshop.
+Well done!
+If I've done my job properly,
+then you've learned some MongoDB, some FastAPI, and some React.
+
+Have a look at the next page for some thoughts and further ideas.
